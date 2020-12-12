@@ -17,6 +17,13 @@ public class PlayerController : MonoBehaviour
     private bool dashing = false;
     private bool blocking = false;
 
+    // reference to animations
+    private PlayerAnimations playerAnimations;
+
+    void Start()
+    {
+        playerAnimations = gameObject.GetComponent<PlayerAnimations>();
+    }
     
     public bool getCanMove()
     {
@@ -35,8 +42,27 @@ public class PlayerController : MonoBehaviour
 
     public void setNeutral()
     {
-        switchOffStates();
-        neutral = true;
+        if(grounded && !neutral)
+        {
+            switchOffStates();
+            alertAnimations();
+            neutral = true;
+        }
+    }
+
+    public bool getMoving()
+    {
+        return moving;
+    }
+    public void setMoving()
+    {
+        if(grounded && !moving)
+        {
+            switchOffStates();
+            alertAnimations();
+            moving = true;
+        }
+        
     }
 
     public bool getAttacking()
@@ -46,20 +72,29 @@ public class PlayerController : MonoBehaviour
     
     public void setAttacking()
     {
-        switchOffStates();
-        attacking = true;
+        if(!attacking)
+        {
+            switchOffStates();
+            alertAnimations();
+            attacking = true;
+        }
+        
     }
 
     public bool getDashing()
     {
         return dashing;
     }
-    
 
     public void setDashing()
     {
-        switchOffStates();
-        dashing = true;
+        if(!dashing)
+        {
+            switchOffStates();
+            alertAnimations();
+            dashing = true;
+        }
+
     }
 
     public bool getBlocking()
@@ -69,8 +104,12 @@ public class PlayerController : MonoBehaviour
 
     public void setBlocking()
     {
-        switchOffStates();
-        blocking = true;
+        if(grounded && !blocking)
+        {
+            switchOffStates();
+            alertAnimations();
+            blocking = true;
+        }
     }
 
     public bool getGrounded()
@@ -80,6 +119,7 @@ public class PlayerController : MonoBehaviour
     
     public void setGrounded(bool set)
     {
+        alertAnimations();
         grounded = set;
     }
 
@@ -91,5 +131,11 @@ public class PlayerController : MonoBehaviour
         blocking = false;
         dashing = false;
         moving = false;   
+    }
+
+    // tell PlayerAnimations that a change of state has occured. 
+    private void alertAnimations()
+    {
+        playerAnimations.changeOfState();
     }
 }

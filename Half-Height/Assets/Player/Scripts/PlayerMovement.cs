@@ -77,11 +77,13 @@ public class PlayerMovement : MonoBehaviour
         }
         //end of sourced code
 
-        Flip();
- 
+        //set state values in PlayerController
+        setStates();
+        //flip to face right way
+        flip();
     }
 
-    private void Flip()
+    private void flip()
     {
         //flipping
         if(horizontalMove > 0 && !facingRight)
@@ -93,6 +95,18 @@ public class PlayerMovement : MonoBehaviour
         {
             sr.flipX = true;
             facingRight = false;
+        }
+    }
+
+    private void setStates()
+    {  
+        if(horizontalMove == 0)
+        {
+            pc.setNeutral();
+        }
+        else
+        {
+            pc.setMoving();
         }
     }
 
