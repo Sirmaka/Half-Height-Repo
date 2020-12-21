@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // grounded calculations
+        pc.setGrounded(false);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundedRadius, whatIsGround);
         for(int i = 0; i < colliders.Length; i++)
         {
@@ -56,13 +57,17 @@ public class PlayerMovement : MonoBehaviour
 
         // movement
         Vector3 targetVelocity = new Vector2(horizontalMove * 10f * Time.deltaTime, rb.velocity.y);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref refVelocity, movementSmoothing);
-        
-        // jumping
-        if(pc.getGrounded() && jump)
+        if(pc.getCanMove())
         {
-            pc.setGrounded(false);
-            rb.velocity += Vector2.up * jumpSpeed;
+            //movement
+            rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref refVelocity, movementSmoothing);
+                    
+            // jumping
+            if(pc.getGrounded() && jump)
+            {
+                pc.setGrounded(false);
+                rb.velocity += Vector2.up * jumpSpeed;
+            }
         }
         jump = false;
         
@@ -78,9 +83,14 @@ public class PlayerMovement : MonoBehaviour
         //end of sourced code
 
         //set state values in PlayerController
-        setStates();
-        //flip to face right way
-        flip();
+        if(pc.getCanMove())
+        {
+            setStates();
+            //flip to face right way
+            flip();
+        }
+        
+
     }
 
     private void flip()

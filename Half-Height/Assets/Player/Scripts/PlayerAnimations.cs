@@ -24,30 +24,38 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetFloat("airSpeed", rb.velocity.y);
     }
 
-    public void changeOfState()
+    public bool changeOfState()
     {
         //all grounded animations
+
 
         if(playerController.getNeutral())
         {
             setAnimation(0);
+            return false;
         }
         if(playerController.getMoving())
         {
             setAnimation(1);
+            return false;
         }
         if(playerController.getAttacking())
         {
             setAnimation(2);
+            return false;
         }
         if(playerController.getBlocking())
         {
             setAnimation(3);
+            return false;
         }
         if(playerController.getDashing())
         {
             setAnimation(4);
+            return false;
         }
+        setAnimation(-1);
+        return true;
     
         
 

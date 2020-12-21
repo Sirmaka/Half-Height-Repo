@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     public bool getNeutral()
     {
-        return canMove;
+        return neutral;
     }
 
     public void setNeutral()
@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour
         if(grounded && !neutral)
         {
             switchOffStates();
-            alertAnimations();
             neutral = true;
+            alertAnimations();
         }
     }
 
@@ -59,10 +59,9 @@ public class PlayerController : MonoBehaviour
         if(grounded && !moving)
         {
             switchOffStates();
-            alertAnimations();
             moving = true;
+            alertAnimations();
         }
-        
     }
 
     public bool getAttacking()
@@ -75,8 +74,8 @@ public class PlayerController : MonoBehaviour
         if(!attacking)
         {
             switchOffStates();
-            alertAnimations();
             attacking = true;
+            alertAnimations();
         }
         
     }
@@ -86,15 +85,11 @@ public class PlayerController : MonoBehaviour
         return dashing;
     }
 
-    public void setDashing()
+    public void setDashing(bool set)
     {
-        if(!dashing)
-        {
-            switchOffStates();
-            alertAnimations();
-            dashing = true;
-        }
-
+        switchOffStates();
+        dashing = set;
+        alertAnimations();
     }
 
     public bool getBlocking()
@@ -107,8 +102,8 @@ public class PlayerController : MonoBehaviour
         if(grounded && !blocking)
         {
             switchOffStates();
-            alertAnimations();
             blocking = true;
+            alertAnimations();
         }
     }
 
@@ -119,8 +114,8 @@ public class PlayerController : MonoBehaviour
     
     public void setGrounded(bool set)
     {
-        alertAnimations();
         grounded = set;
+        alertAnimations();
     }
 
     // used to set all states to false so a new one can be identified.
