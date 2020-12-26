@@ -97,12 +97,12 @@ public class PlayerController : MonoBehaviour
         return blocking;
     }
 
-    public void setBlocking()
+    public void setBlocking(bool set)
     {
-        if(grounded && !blocking)
+        if(!blocking)
         {
             switchOffStates();
-            blocking = true;
+            blocking = set;
             alertAnimations();
         }
     }
