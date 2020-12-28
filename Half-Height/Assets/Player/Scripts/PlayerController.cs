@@ -69,15 +69,11 @@ public class PlayerController : MonoBehaviour
         return attacking;
     }
     
-    public void setAttacking()
+    public void setAttacking(bool set)
     {
-        if(!attacking)
-        {
-            switchOffStates();
-            attacking = true;
-            alertAnimations();
-        }
-        
+        switchOffStates();
+        attacking = set;
+        alertAnimations();
     }
 
     public bool getDashing()
@@ -122,7 +118,7 @@ public class PlayerController : MonoBehaviour
     private void switchOffStates()
     {
         neutral = false;
-        attacking = false;
+        //attacking = false;
         blocking = false;
         dashing = false;
         moving = false;   
