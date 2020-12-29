@@ -18,9 +18,8 @@ public class PlayerAnimations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        animator.SetBool("grounded", playerController.getGrounded());
-        //changeOfState();
         // airborne animations happen automatically if grounded != true, just have to update y velocity
+        animator.SetBool("grounded", playerController.getGrounded());
         animator.SetFloat("airSpeed", rb.velocity.y);
     }
 
@@ -28,7 +27,12 @@ public class PlayerAnimations : MonoBehaviour
     {
         //all grounded animations
 
-
+        //attacking must come first here as it takes priority over all other states.
+        if(playerController.getAttacking())
+        {
+            setAnimation(2);
+            return false;
+        }
         if(playerController.getNeutral())
         {
             setAnimation(0);
@@ -37,11 +41,6 @@ public class PlayerAnimations : MonoBehaviour
         if(playerController.getMoving())
         {
             setAnimation(1);
-            return false;
-        }
-        if(playerController.getAttacking())
-        {
-            setAnimation(2);
             return false;
         }
         if(playerController.getBlocking())
