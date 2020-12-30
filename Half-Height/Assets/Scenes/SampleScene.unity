@@ -522,8 +522,8 @@ MonoBehaviour:
   attackPointLeft: {fileID: 1992473868}
   attackPrefab: {fileID: 6486447112670421769, guid: 7d5e1f9d59bb299469a21e752129d548,
     type: 3}
-  attackAnimTime: 0.6
-  attackCooldown: 1
+  attackAnimTime: 0.2
+  attackCooldown: 0.5
 --- !u!114 &711874343
 MonoBehaviour:
   m_ObjectHideFlags: 0
