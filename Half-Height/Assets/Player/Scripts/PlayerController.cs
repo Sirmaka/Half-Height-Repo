@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool attacking = false;
     private bool dashing = false;
     private bool blocking = false;
+    private bool invincible = false;
 
     // reference to animations
     private PlayerAnimations playerAnimations;
@@ -112,6 +113,15 @@ public class PlayerController : MonoBehaviour
     {
         grounded = set;
         alertAnimations();
+    }
+
+    public bool getInvincible()
+    {
+        return invincible;
+    }
+    public void setInvincible(bool set)
+    {
+        invincible = set;
     }
 
     // used to set all states to false so a new one can be identified.
