@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
     private SpriteRenderer thisSpriteRenderer;
     private Animator thisAnimator;  //  required for animation length
     private AnimationClip clip; //  required for animation length
-    public GameObject attackPrefab;
+    public AttackObject attackPrefab;
     private bool attacking;
     private float attackAnimTime;
     private float airAttackAnimTime;
@@ -61,8 +61,10 @@ public class PlayerAttack : MonoBehaviour
         {
             // tell playerController that we're attacking
             playerController.setAttacking(true);
+
             //create attack prefab
-            GameObject attack = Instantiate(attackPrefab);
+            AttackObject attack = Instantiate(attackPrefab);
+            attack.setAttackPoints(attackPointLeft, attackPointRight);
             attack.transform.parent = transform;
             
             //position

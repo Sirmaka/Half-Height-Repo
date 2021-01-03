@@ -28,33 +28,38 @@ public class PlayerAnimations : MonoBehaviour
         //all grounded animations
 
         //attacking must come first here as it takes priority over all other states.
+        if(playerController.getHurt())
+        {
+            setAnimation(5);
+            return true;
+        }
         if(playerController.getAttacking())
         {
             setAnimation(2);
-            return false;
+            return true;
         }
         if(playerController.getNeutral())
         {
             setAnimation(0);
-            return false;
+            return true;
         }
         if(playerController.getMoving())
         {
             setAnimation(1);
-            return false;
+            return true;
         }
         if(playerController.getBlocking())
         {
             setAnimation(3);
-            return false;
+            return true;
         }
         if(playerController.getDashing())
         {
             setAnimation(4);
-            return false;
+            return true;
         }
         setAnimation(-1);
-        return true;
+        return false;
     
         
 
@@ -69,6 +74,7 @@ public class PlayerAnimations : MonoBehaviour
         attacking   = 2;
         blocking    = 3;
         dashing     = 4;
+        hurt        = 5;
         airspeed
         */
         animator.SetBool("neutral", false);
@@ -76,6 +82,7 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetBool("attacking", false);
         animator.SetBool("blocking", false);
         animator.SetBool("dashing", false);
+        animator.SetBool("hurt", false);
         
         switch(animation)
         {
@@ -93,6 +100,9 @@ public class PlayerAnimations : MonoBehaviour
                 break;
             case 4: 
                 animator.SetBool("dashing", true);
+                break;
+            case 5:
+                animator.SetBool("hurt", true);
                 break;
             default:
                 animator.SetBool("neutral", true);
