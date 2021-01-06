@@ -22,7 +22,11 @@ public class Canonball : MonoBehaviour
     {
         if(player.Contains(other.gameObject))
         {
-            Destroy(this.gameObject);
+            PlayerController pc = other.gameObject.GetComponent<PlayerController>();
+            if(!pc.getInvincible())
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }

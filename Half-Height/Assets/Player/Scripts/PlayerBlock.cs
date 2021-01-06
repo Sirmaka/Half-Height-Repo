@@ -65,7 +65,7 @@ public class PlayerBlock : MonoBehaviour
         }
         if(!parryWindow)
         {
-            thisSpriteRenderer.material.color = Color.white;
+            // thisSpriteRenderer.material.color = Color.white;
             playerController.setParrying(false);
         }
 

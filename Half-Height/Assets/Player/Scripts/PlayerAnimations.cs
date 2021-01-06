@@ -55,11 +55,7 @@ public class PlayerAnimations : MonoBehaviour
         //all grounded animations
 
         //attacking must come first here as it takes priority over all other states.
-        if(playerController.getSuccessfulParry())
-        {
-            setAnimation(6);
-            return true;
-        }
+        
         if(playerController.getHurt())
         {
             setAnimation(5);
@@ -68,6 +64,11 @@ public class PlayerAnimations : MonoBehaviour
         if(playerController.getAttacking())
         {
             setAnimation(2);
+            return true;
+        }
+        if(playerController.getSuccessfulParry())
+        {
+            setAnimation(6);
             return true;
         }
         if(playerController.getNeutral())

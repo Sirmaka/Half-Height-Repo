@@ -33,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
         thisRigidbody = this.GetComponent<Rigidbody2D>();
         hp = maxHP;   
         knockBackDuration = knockBackTimer;
+        parryInvincibleTimer = parryInvincibleDuration;
     }
 
     // Update is called once per frame
@@ -68,10 +69,12 @@ public class PlayerHealth : MonoBehaviour
             parryInvincibleTimer -= Time.deltaTime;
             thisSpriteRenderer.material.color = Color.gray;
         }
-        if(parryInvincibleTimer <= 0)
+        if(parryInvincibleTimer <= 0 && parryInvincible)
         {
             parryInvincible = false;
             playerController.setInvincible(false);
+            parryInvincibleTimer = parryInvincibleDuration;
+
         }
         if(!parryInvincible)
         {
@@ -99,7 +102,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 successfulParry();
             }
-            //if we're parrying, don't do any of the following code
+            //if we're invincible, don't do any of the following code
             if(!playerController.getInvincible())
             {
                
