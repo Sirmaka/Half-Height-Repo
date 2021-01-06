@@ -282,8 +282,11 @@ MonoBehaviour:
   isAttack:
     serializedVersion: 2
     m_Bits: 1024
+  knockBackTimer: 1
   maxHP: 4
-  knockBackForce: {x: 12, y: 12}
+  knockBackForce: {x: 1, y: 0}
+  knockBackSpeedX: 20
+  knockBackSpeedY: 1
 --- !u!114 &8987621841168159091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cc7a9cce039e0140950d74a5be377d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parryDuration: 0
+  parryDuration: 0.2
 --- !u!114 &8987621841168159088
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +7,26 @@ public class PlayerAnimations : MonoBehaviour
     private PlayerController playerController;
     private Animator animator;
     private Rigidbody2D rb;
+    private AnimationClip parryClip; //  required for animation length
+    private float parryAnimDuration;
+    private float parryAnimTimer;
     // Start is called before the first frame update
     void Start()
     {
         playerController = gameObject.GetComponent<PlayerController>();
         animator = gameObject.GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody2D>();
+
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach(AnimationClip clip in clips)
+        {
+            if(clip.name.Equals("parryAnim"))
+            {
+                parryAnimDuration = clip.length;
+            }
+            //do this for attack anims
+        }
+
     }
 
     // Update is called once per frame
@@ -21,6 +35,19 @@ public class PlayerAnimations : MonoBehaviour
         // airborne animations happen automatically if grounded != true, just have to update y velocity
         animator.SetBool("grounded", playerController.getGrounded());
         animator.SetFloat("airSpeed", rb.velocity.y);
+
+        //TODO: move attacking animation code here
+
+        //Parry animation must play to end, but move on once that's done
+        if(playerController.getSuccessfulParry())
+        {
+            parryAnimTimer -= Time.deltaTime;
+        }
+        if(parryAnimTimer <= 0)
+        {
+            playerController.setSuccessfulParry(false);
+            parryAnimTimer = parryAnimDuration;
+        }
     }
 
     public bool changeOfState()
@@ -28,6 +55,11 @@ public class PlayerAnimations : MonoBehaviour
         //all grounded animations
 
         //attacking must come first here as it takes priority over all other states.
+        if(playerController.getSuccessfulParry())
+        {
+            setAnimation(6);
+            return true;
+        }
         if(playerController.getHurt())
         {
             setAnimation(5);
@@ -60,12 +92,9 @@ public class PlayerAnimations : MonoBehaviour
         }
         setAnimation(-1);
         return false;
-    
-        
-
     }
 
-    // set all animations to false, then set the right animation. 
+    // set all animations to false, then change to the right animation. 
     private void setAnimation(int animation)
     {
         /*
@@ -83,6 +112,7 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetBool("blocking", false);
         animator.SetBool("dashing", false);
         animator.SetBool("hurt", false);
+        animator.SetBool("parrying", false);
         
         switch(animation)
         {
@@ -103,6 +133,9 @@ public class PlayerAnimations : MonoBehaviour
                 break;
             case 5:
                 animator.SetBool("hurt", true);
+                break;
+            case 6:
+                animator.SetBool("parrying", true);
                 break;
             default:
                 animator.SetBool("neutral", true);

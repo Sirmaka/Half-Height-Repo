@@ -9,13 +9,17 @@ public class PlayerBlock : MonoBehaviour
     private Rigidbody2D thisRigidbody;
     private SpriteRenderer thisSpriteRenderer;
     public float parryDuration;
+    private float parryTimer;
     private bool isBlocking;
     private bool stopBlocking;
+    private bool parryWindow;
+    private bool canParry = true;
     void Start()
     {
         playerController = this.GetComponent<PlayerController>();
         thisSpriteRenderer = this.GetComponent<SpriteRenderer>();
         thisRigidbody = this.GetComponent<Rigidbody2D>();
+        parryTimer = parryDuration;        
 
     }
 
@@ -41,15 +45,39 @@ public class PlayerBlock : MonoBehaviour
             playerController.setBlocking(true);
             playerController.setCanMove(false);
             thisRigidbody.velocity = new Vector2(0,0);  //  Stop the player from sliding.
+            if(canParry)
+            {
+                parryWindow = true;
+                canParry = false;
+            }
         }
 
-        //  This is what I got up to. Write the code to stop blocking
+        if(parryWindow)
+        {
+            parryTimer -= Time.deltaTime;
+            thisSpriteRenderer.material.color = Color.black;
+            playerController.setParrying(true);
+        }
+        if(parryTimer <= 0)
+        {
+            parryWindow = false;
+            parryTimer = parryDuration;
+        }
+        if(!parryWindow)
+        {
+            thisSpriteRenderer.material.color = Color.white;
+            playerController.setParrying(false);
+        }
+
         if(stopBlocking)
         {
             isBlocking = false;
             playerController.setBlocking(false);
             playerController.setCanMove(true);
+            playerController.setParrying(false);
             stopBlocking = false;
+            parryWindow = false;
+            canParry = true; //reset it here so players can only parry again after they've stopped blocking
         }
     }
 

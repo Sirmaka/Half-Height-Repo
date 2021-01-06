@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private bool blocking = false;
     private bool invincible = false;
     private bool hurt = false;
+    private bool parrying = false;        //if done right, player may parry an attack
+    private bool successfulParry = false; //parry has been successful
 
     // reference to animations
     private PlayerAnimations playerAnimations;
@@ -136,6 +138,33 @@ public class PlayerController : MonoBehaviour
         hurt = set;
         alertAnimations();
     }
+
+    //minor state. Important for when taking damage, but not for animations.
+    public bool getParrying()
+    {
+        return parrying;
+    }
+    public void setParrying(bool set)
+    {
+        parrying = set;
+    }
+
+    public bool getSuccessfulParry()
+    {
+        return successfulParry;
+    }
+    public void setSuccessfulParry(bool set)  
+    {
+        switchOffStates();
+        successfulParry = set;
+        if(successfulParry)
+        {   //parry was successful, so stop parrying
+            parrying = false;
+        }
+        alertAnimations();
+    }
+
+
 
     // used to set all states to false so a new one can be identified.
     private void switchOffStates()
