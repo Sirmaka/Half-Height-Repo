@@ -83,7 +83,7 @@ public class PlayerAttack : MonoBehaviour
                 animationDuration = airAttackAnimTime;
             }
             
-            amAttacking = true;
+            // amAttacking = true;
             onCooldown = true;
             
         }
@@ -101,23 +101,5 @@ public class PlayerAttack : MonoBehaviour
             onCooldown = false;
         }
 
-        /*
-            Animation alerts:
-                Attacking is a unique case. All action scripts must alert the PlayerAnimation script
-                when a change of animation state is required, but as attacking takes priority over all
-                other animations, the PlayerAttack script must alert PlayerAnimation when the attack begins
-                and ends.
-        */
-        //animation timer
-        if(amAttacking)
-        {
-            animationDuration -= Time.deltaTime;
-        }
-        //if attack animation is over, then alert PlayerController
-        if(animationDuration <= 0 && amAttacking)
-        {
-            amAttacking = false;
-            playerController.setAttacking(false);
-        }   
     }
 }

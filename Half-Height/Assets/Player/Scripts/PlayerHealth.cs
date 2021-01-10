@@ -67,7 +67,7 @@ public class PlayerHealth : MonoBehaviour
         if(parryInvincible)
         {
             parryInvincibleTimer -= Time.deltaTime;
-            thisSpriteRenderer.material.color = Color.gray;
+            // thisSpriteRenderer.material.color = Color.gray;
         }
         if(parryInvincibleTimer <= 0 && parryInvincible)
         {
@@ -78,7 +78,7 @@ public class PlayerHealth : MonoBehaviour
         }
         if(!parryInvincible)
         {
-            thisSpriteRenderer.material.color = Color.white;
+            // thisSpriteRenderer.material.color = Color.white;
         }
     }
 

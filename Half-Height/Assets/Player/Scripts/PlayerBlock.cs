@@ -55,7 +55,7 @@ public class PlayerBlock : MonoBehaviour
         if(parryWindow)
         {
             parryTimer -= Time.deltaTime;
-            thisSpriteRenderer.material.color = Color.black;
+            // thisSpriteRenderer.material.color = Color.black;
             playerController.setParrying(true);
         }
         if(parryTimer <= 0)

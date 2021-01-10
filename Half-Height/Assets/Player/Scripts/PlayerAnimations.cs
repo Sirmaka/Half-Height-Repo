@@ -10,6 +10,10 @@ public class PlayerAnimations : MonoBehaviour
     private AnimationClip parryClip; //  required for animation length
     private float parryAnimDuration;
     private float parryAnimTimer;
+    private float attackAnimDuration;
+    private float attackAnimTimer;
+    private float airAttackAnimDuration;
+    private float airAttackAnimTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +28,18 @@ public class PlayerAnimations : MonoBehaviour
             {
                 parryAnimDuration = clip.length;
             }
-            //do this for attack anims
+            if(clip.name.Equals("attackAnim"))
+            {
+                attackAnimDuration = clip.length;
+            }
+            if(clip.name.Equals("airAttackAnim"))
+            {
+                airAttackAnimDuration = clip.length;
+            }
         }
-
+        parryAnimTimer = parryAnimDuration;
+        attackAnimTimer = attackAnimDuration;
+        airAttackAnimTimer = airAttackAnimDuration;
     }
 
     // Update is called once per frame
@@ -36,10 +49,34 @@ public class PlayerAnimations : MonoBehaviour
         animator.SetBool("grounded", playerController.getGrounded());
         animator.SetFloat("airSpeed", rb.velocity.y);
 
-        //TODO: move attacking animation code here
+        //Attack and Parry animations are unique, as they must play to their end no matter what.
+        if(playerController.getAttacking()) //as set by attacking script
+        {
+            if(playerController.getGrounded())
+            {
+                attackAnimTimer -= Time.deltaTime;
+
+                if(attackAnimTimer <= 0)
+                {
+                    playerController.setAttacking(false);
+                    attackAnimTimer = attackAnimDuration;
+                }
+            }
+            if(!playerController.getGrounded())
+            {
+                airAttackAnimTimer -= Time.deltaTime;
+
+                if(airAttackAnimTimer <= 0)
+                {
+                    playerController.setAttacking(false);
+                    airAttackAnimTimer = airAttackAnimDuration;
+                }
+            }
+        }
+        
 
         //Parry animation must play to end, but move on once that's done
-        if(playerController.getSuccessfulParry())
+        if(playerController.getSuccessfulParry())   //set by blocking script
         {
             parryAnimTimer -= Time.deltaTime;
         }
