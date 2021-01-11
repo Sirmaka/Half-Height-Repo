@@ -56,12 +56,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // movement
-        Vector3 targetVelocity = new Vector2(horizontalMove * 10f * Time.deltaTime, rb.velocity.y);
+        Vector3 targetVelocity = Vector2.zero;
         if(pc.getCanMove())
         {
-            //movement
-            rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref refVelocity, movementSmoothing);
-                    
+            targetVelocity = new Vector2(horizontalMove * 10f * Time.deltaTime, rb.velocity.y);
+            
             // jumping
             if(pc.getGrounded() && jump)
             {
@@ -69,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity += Vector2.up * jumpSpeed;
             }
         }
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref refVelocity, movementSmoothing);
+
         jump = false;
         
         // the following code was sourced from Board To Bits Games at https://www.youtube.com/watch?v=7KiK0Aqtmzc&t=399s 

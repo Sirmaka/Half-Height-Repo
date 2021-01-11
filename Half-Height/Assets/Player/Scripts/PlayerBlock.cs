@@ -44,7 +44,7 @@ public class PlayerBlock : MonoBehaviour
             // tell PlayerController that we're blocking and we can't move
             playerController.setBlocking(true);
             playerController.setCanMove(false);
-            thisRigidbody.velocity = new Vector2(0,0);  //  Stop the player from sliding.
+            // thisRigidbody.velocity = new Vector2(0,0);  //  Stop the player from sliding.
             if(canParry)
             {
                 parryWindow = true;

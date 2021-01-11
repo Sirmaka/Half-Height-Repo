@@ -8,8 +8,8 @@ public class PlayerHealth : MonoBehaviour
     private SpriteRenderer thisSpriteRenderer;
     private Rigidbody2D thisRigidbody;
     public LayerMask isAttack;
-    public float knockBackTimer;        //set value
-    private float knockBackDuration;    // countdown
+    public float knockBackDuration;     //set value
+    private float knockBackTimer;        // countdown
     private bool knockedBack = false;
     public int maxHP;
     private int hp;
@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour
         thisSpriteRenderer = this.GetComponent<SpriteRenderer>();
         thisRigidbody = this.GetComponent<Rigidbody2D>();
         hp = maxHP;   
-        knockBackDuration = knockBackTimer;
+        knockBackTimer = knockBackDuration;
         parryInvincibleTimer = parryInvincibleDuration;
     }
 
@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
         if(knockedBack)
         {
             playerController.setInvincible(true);   // cannot take damage in knockback
-            knockBackDuration -= Time.deltaTime;
+            knockBackTimer -= Time.deltaTime;
             playerController.setCanMove(false);
             /*
                 KnockBack movement
@@ -51,10 +51,10 @@ public class PlayerHealth : MonoBehaviour
             Vector3 targetVelocity = new Vector2(-attackDirection * knockBackForce.x * knockBackSpeedX* Time.deltaTime, knockBackForce.y * knockBackSpeedY * Time.deltaTime);
             thisRigidbody.velocity = Vector3.SmoothDamp(thisRigidbody.velocity, targetVelocity, ref refVelocity, movementSmoothing);
         }
-        if(knockBackDuration <= 0 && knockedBack)
+        if(knockBackTimer <= 0 && knockedBack)
         {
             knockedBack = false;
-            knockBackDuration = knockBackTimer;
+            knockBackTimer = knockBackDuration;
             if(playerController.getHurt())
             {
                 playerController.setHurt(false);
@@ -111,11 +111,9 @@ public class PlayerHealth : MonoBehaviour
                     || (playerController.getBlocking() && !facingRight && attackDirection > 0))
                 {
                     takeDamage();
-                    playerController.setHurt(true);
                 }
                 //knockback
                 knockedBack = true;
-
             }
           
         }
@@ -124,6 +122,7 @@ public class PlayerHealth : MonoBehaviour
     private void takeDamage()
     {
         hp -= 1;
+        playerController.setHurt(true);
         if(hp <= 0)
         {
             //die

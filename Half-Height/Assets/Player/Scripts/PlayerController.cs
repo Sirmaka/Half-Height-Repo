@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
     }
     public void setInvincible(bool set)
     {
-        Debug.Log(set);
+        // Debug.Log(set);
         invincible = set;
     }
 

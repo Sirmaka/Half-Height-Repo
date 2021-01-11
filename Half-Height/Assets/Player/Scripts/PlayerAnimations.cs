@@ -79,20 +79,20 @@ public class PlayerAnimations : MonoBehaviour
         if(playerController.getSuccessfulParry())   //set by blocking script
         {
             parryAnimTimer -= Time.deltaTime;
+            playerController.setCanMove(false); // don't move while parrying
         }
         if(parryAnimTimer <= 0)
         {
             playerController.setSuccessfulParry(false);
             parryAnimTimer = parryAnimDuration;
+            playerController.setCanMove(true);
         }
     }
 
     public bool changeOfState()
     {
         //all grounded animations
-
         //attacking must come first here as it takes priority over all other states.
-        
         if(playerController.getHurt())
         {
             setAnimation(5);

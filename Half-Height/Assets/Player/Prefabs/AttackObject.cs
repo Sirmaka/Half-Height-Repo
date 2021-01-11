@@ -14,6 +14,7 @@ public class AttackObject : MonoBehaviour
     public Animator thisAnimator;       // set in unity
     public SpriteRenderer thisSpriteRenderer;
     private bool facingLeft;
+    public int damage = 1;
     void Start()
     {
         AnimationClip[] clips = thisAnimator.runtimeAnimatorController.animationClips;
@@ -56,6 +57,10 @@ public class AttackObject : MonoBehaviour
         thisSpriteRenderer.flipX = facingLeft;
     }
 
+    public int getDamage()
+    {
+        return damage;
+    }
 
     //  To be called on instantiation
     public void setAttackPoints(Transform left, Transform right)
