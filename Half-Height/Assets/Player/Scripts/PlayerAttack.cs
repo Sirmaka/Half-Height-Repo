@@ -18,9 +18,7 @@ public class PlayerAttack : MonoBehaviour
     // private float attackAnimTimeReset;
     public float attackCooldown;
     private bool onCooldown = false;   //  determines whether the attack is on cooldown
-    private float attackCooldownReset;
-    
-    private bool amAttacking = false;
+    private float attackCooldownReset;    
     // Start is called before the first frame update
     void Start()
     {
