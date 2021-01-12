@@ -270,7 +270,7 @@ MonoBehaviour:
     m_Bits: 2048
   hp: 2
   knockBackDuration: 0.2
-  knockBackForce: {x: 10, y: 0}
+  knockBackForce: {x: 100, y: 0}
 --- !u!61 &337414261
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -620,6 +620,11 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8987621841168159093, guid: 3d24cb010fcf9d74ea5deaffcfe86355,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: c13f64cecedaf4449a1c58c9417e9a6b, type: 2}
     - target: {fileID: 8987621841168159095, guid: 3d24cb010fcf9d74ea5deaffcfe86355,
         type: 3}
       propertyPath: m_LocalPosition.x
