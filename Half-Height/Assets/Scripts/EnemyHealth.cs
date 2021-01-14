@@ -75,6 +75,7 @@ public class EnemyHealth : MonoBehaviour
                 knockedBack = true;
             }
         }
+        else return;
     }
 
     private void takeDamage(int damage)
