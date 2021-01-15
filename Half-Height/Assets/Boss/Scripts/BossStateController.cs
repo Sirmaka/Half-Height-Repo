@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +22,7 @@ public class BossStateController : MonoBehaviour
     {
         //get the players position
         Vector2 playerPosition = transform.InverseTransformPoint(player.position);
+        //TODO: Make the 
         idle.isIdle(playerPosition, thisRigidbody, thisSpriteRenderer);
     }
 
