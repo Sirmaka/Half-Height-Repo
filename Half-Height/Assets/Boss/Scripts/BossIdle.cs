@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossIdle : MonoBehaviour
+public class BossIdle : MonoBehaviour, BossState
 {
     /*
         Things the Boss can do in Idle:
@@ -11,8 +11,9 @@ public class BossIdle : MonoBehaviour
     private float directionFacing;
 
     //this method will run every frame the boss is in this state. Called in BossStateController
-    public void isIdle(Vector2 playerPosition, Rigidbody2D thisRigidbody, SpriteRenderer thisSpriteRenderer)
+    public void doState(Animator thisAnimator, Rigidbody2D thisRigidbody, SpriteRenderer thisSpriteRenderer, Vector2 playerPosition)
     {
+        thisAnimator.SetBool("Idle", true);
         //get the direction the boss is facing
         if(thisSpriteRenderer.flipX)
         {
@@ -22,7 +23,6 @@ public class BossIdle : MonoBehaviour
         {
             directionFacing = 1;
         }
-        
         
         //turn to face player
         if(playerPosition.x < 0 && directionFacing > 0)
