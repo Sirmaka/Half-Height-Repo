@@ -59,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 targetVelocity = Vector2.zero;
         if(pc.getCanMove())
         {
+            //multiplied by 10 here entirely because setting speed to "250" looks worse than "25" in the editor.
             targetVelocity = new Vector2(horizontalMove * 10f * Time.deltaTime, rb.velocity.y);
             
             // jumping
