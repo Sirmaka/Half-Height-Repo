@@ -13,6 +13,7 @@ public class BossPowerSwipe : BossState
     private float chargeTimer;
     private float travelTimer;
     private float swingTimer;
+    private float swingAttackTimer;
     private float endTimer;
     private enum AttackState {charge, travel, swing};     //could be achieved using State pattern, but this will do as no more states will be added.
     private AttackState state;
@@ -27,6 +28,7 @@ public class BossPowerSwipe : BossState
         transform = controller.getTransform();
         travelDistance = controller.PSTravelVelocity;
         movementSmoothing = controller.PSMovementSmoothing;
+        swingAttackTimer = controller.PSAttackDuration;
     }
     
     public void doState()
@@ -53,7 +55,7 @@ public class BossPowerSwipe : BossState
                 break;
 
             case AttackState.travel:    //do animation, slide forwards
-                controller.setAnimation("PSTravel");
+                controller.setAnimationTransition(1);
                 travelTimer -= Time.deltaTime;
                 targetPoint = transform.TransformPoint(new Vector2(travelDistance * facedDirection, 0));
                 if(travelTimer <= 0)
@@ -64,13 +66,24 @@ public class BossPowerSwipe : BossState
                 break;
 
             case AttackState.swing:
-                controller.setAnimation("PSSwing");
+                controller.setAnimationTransition(2);
+                swingAttackTimer -= Time.deltaTime; //  length of the anim
                 swingTimer -= Time.deltaTime;
+                if(swingAttackTimer >= 0)
+                {
+                    controller.getPSHitbox(facedDirection).enabled = true;
+                }
+                else
+                {
+                    controller.getPSHitbox(facedDirection).enabled = false;
+                }
                 if(swingTimer <= 0)
                 {
                     swingTimer = controller.PSSwingDuration;
+                    swingAttackTimer = controller.PSAttackDuration;
                     state = AttackState.charge; //reset for next attack
                     controller.EndOfState();
+
                 }
                 break;
             default:
