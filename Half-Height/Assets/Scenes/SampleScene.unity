@@ -951,7 +951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908399471}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2, y: -4.12, z: 0}
+  m_LocalPosition: {x: 50.18, y: -4.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -987,7 +987,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1908399471}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d59cf114a15a6004c809241dd799ee1a, type: 2}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1035,8 +1035,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PSChargeDuration: 0.75
-  PSendDuration: 0
-  PSTravelVelocity: 2500
+  PSSwingDuration: 0.75
+  PSTravelDuration: 0.1
+  PSTravelVelocity: 1
+  PSMovementSmoothing: 0.1
 --- !u!1001 &951466674552101225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1052,7 +1054,7 @@ PrefabInstance:
     - target: {fileID: 951466675239166433, guid: e783303eb8995d441bfd5e74e7d4169a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.84
+      value: 47.82
       objectReference: {fileID: 0}
     - target: {fileID: 951466675239166433, guid: e783303eb8995d441bfd5e74e7d4169a,
         type: 3}
