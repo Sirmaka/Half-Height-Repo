@@ -26,6 +26,21 @@ public class AttackObject : MonoBehaviour
             }
         }
 
+        // whether the player was facing right or not during the attack 
+
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        
+        timer -= Time.deltaTime;
+
+        if(timer <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+        
         /*
           Get whether the player is facing left or right and match it
         */
@@ -40,20 +55,6 @@ public class AttackObject : MonoBehaviour
             transform.position = attackPointRight.position;
         }
         thisSpriteRenderer.flipX = facingLeft;
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        
-        timer -= Time.deltaTime;
-
-        if(timer <= 0)
-        {
-            Destroy(this.gameObject);
-        }
-        
-       
     }
 
     public int getDamage()

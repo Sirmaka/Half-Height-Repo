@@ -15,10 +15,8 @@ public class BossPowerSwipe : BossState
     private float swingTimer;
     private float swingAttackTimer;
     private float endTimer;
-    private bool createdProjectile = false;
     private enum AttackState {charge, travel, swing};     //could be achieved using State pattern, but this will do as no more states will be added.
     private AttackState state;
-    private PowerSwipeProjectile PSProjectilePrefab;
     // Start is called before the first frame update
     public BossPowerSwipe(BossStateController stateController)
     {
@@ -31,7 +29,6 @@ public class BossPowerSwipe : BossState
         travelDistance = controller.PSTravelVelocity;
         movementSmoothing = controller.PSMovementSmoothing;
         swingAttackTimer = controller.PSAttackDuration;
-        PSProjectilePrefab = controller.PSProjectilePrefab;
     }
     
     public void doState()
@@ -69,11 +66,6 @@ public class BossPowerSwipe : BossState
                 break;
 
             case AttackState.swing:
-                if(!createdProjectile)
-                {
-                    controller.createPSProjectile();
-                    createdProjectile = true;
-                }
                 controller.setAnimationTransition(2);
                 swingAttackTimer -= Time.deltaTime; //  length of the anim
                 swingTimer -= Time.deltaTime;
@@ -90,8 +82,8 @@ public class BossPowerSwipe : BossState
                     swingTimer = controller.PSSwingDuration;
                     swingAttackTimer = controller.PSAttackDuration;
                     state = AttackState.charge; //reset for next attack
-                    createdProjectile = false;
                     controller.EndOfState();
+
                 }
                 break;
             default:
