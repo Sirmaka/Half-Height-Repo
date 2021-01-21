@@ -97,16 +97,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void flip()
     {
-        //flipping
-        if(horizontalMove > 0 && !facingRight)
+        if(!pc.getAttacking())
         {
-            sr.flipX = false;
-            facingRight = true;
-        }
-        if(horizontalMove < 0 && facingRight)
-        {
-            sr.flipX = true;
-            facingRight = false;
+            if(horizontalMove > 0 && !facingRight)
+            {
+                sr.flipX = false;
+                facingRight = true;
+            }
+            if(horizontalMove < 0 && facingRight)
+            {
+                sr.flipX = true;
+                facingRight = false;
+            }
         }
     }
 

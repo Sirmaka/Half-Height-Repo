@@ -8,7 +8,10 @@ public class BossStateController: MonoBehaviour
     private Rigidbody2D thisRigidbody;
     private SpriteRenderer thisSpriteRenderer;
     private Animator thisAnimator;
+
     [Header("Power Swipe Stats")]
+    public PowerSwipeProjectile PSProjectilePrefab;
+    private PowerSwipeProjectile PSProjectile;
     public float PSChargeDuration;
     public float PSSwingDuration;
     public float PSTravelDuration;
@@ -17,6 +20,8 @@ public class BossStateController: MonoBehaviour
     public float PSAttackDuration;
     public BoxCollider2D PSHitboxLeft;
     public BoxCollider2D PSHitboxRight;
+    public Transform PSAttackPointLeft;
+    public Transform PSAttackPointRight;
     private BossState currentState;
     private BossState idle;
     private BossState powerSwipe;
@@ -107,6 +112,22 @@ public class BossStateController: MonoBehaviour
             return PSHitboxRight;
         }
         return null;
+    }
+
+    public void createPSProjectile()
+    {
+        PSProjectile = Instantiate(PSProjectilePrefab);
+        PSProjectile.transform.SetParent(this.transform);
+        Transform PSSpawn = PSAttackPointRight;
+        float PSDirection = 1;
+        if(thisSpriteRenderer.flipX)
+        {
+            PSSpawn = PSAttackPointLeft;
+            PSDirection = -1;
+        }
+        PSProjectile.transform.position = PSSpawn.position;
+        //Set direction
+        PSProjectile.direction = PSDirection;
     }
 
     public void EndOfState()
