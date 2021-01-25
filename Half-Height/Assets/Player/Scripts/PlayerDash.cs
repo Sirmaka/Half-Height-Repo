@@ -29,7 +29,8 @@ public class PlayerDash : MonoBehaviour
     void Update()
     {
         if(Input.GetButtonDown("Dash") && playerController.getCanMove() 
-            && !playerController.getBlocking() && !playerController.getAttacking())
+            && !playerController.getBlocking() && !playerController.getAttacking()
+            && !playerController.getInDialogue())
         {
             dashing = true;  
         }

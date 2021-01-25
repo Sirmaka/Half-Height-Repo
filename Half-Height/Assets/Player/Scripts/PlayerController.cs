@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
     private bool hurt = false;
     private bool parrying = false;        //if done right, player may parry an attack
     private bool successfulParry = false; //parry has been successful
-
+    private bool inDialogue = false;
+    private bool canEnterDialogue = false;
     // reference to animations
     private PlayerAnimations playerAnimations;
 
@@ -165,6 +166,38 @@ public class PlayerController : MonoBehaviour
         alertAnimations();
     }
 
+    public bool getInDialogue()
+    {
+        return inDialogue;
+    }
+
+    public void enterDialogue()
+    {
+        if(canEnterDialogue)
+        {
+            switchOffStates();
+            inDialogue = true;
+            invincible = true;
+            canMove = false;
+        }
+
+    }
+    public void exitDialogue()
+    {
+        inDialogue = false;
+        canMove = true;
+        invincible = false;
+        canEnterDialogue = false;
+    }
+
+    public bool getCanEnterDialogue()
+    {
+        return canEnterDialogue;
+    }
+    public void setCanEnterDialogue(bool set)
+    {
+        canEnterDialogue = set;
+    }
 
 
     // used to set all states to false so a new one can be identified.

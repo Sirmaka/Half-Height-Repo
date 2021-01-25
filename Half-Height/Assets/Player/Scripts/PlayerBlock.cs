@@ -39,7 +39,8 @@ public class PlayerBlock : MonoBehaviour
     void FixedUpdate()
     {
         if(isBlocking && !playerController.getAttacking()
-            && !playerController.getDashing() && playerController.getGrounded())
+            && !playerController.getDashing() && playerController.getGrounded()
+            && !playerController.getInDialogue())
         {
             // tell PlayerController that we're blocking and we can't move
             playerController.setBlocking(true);

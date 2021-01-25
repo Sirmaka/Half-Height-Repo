@@ -55,7 +55,7 @@ public class PlayerAttack : MonoBehaviour
     void FixedUpdate()
     {
         if(attacking && !playerController.getBlocking()
-            && !playerController.getDashing() && !onCooldown)
+            && !playerController.getDashing() && !onCooldown && !playerController.getInDialogue())
         {
             // tell playerController that we're attacking
             playerController.setAttacking(true);
