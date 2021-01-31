@@ -14,8 +14,6 @@ public class BGMManager : MonoBehaviour
         openingTimer = opening.clip.length;
 
         //play the song
-        opening.enabled = true;
-        loop.enabled = false;
         opening.Play();
     }
 
@@ -26,10 +24,8 @@ public class BGMManager : MonoBehaviour
 
         if(openingTimer <= 0 && !looping)
         {
-            opening.Stop();
-            opening.enabled = false;
-            loop.enabled = true;
             loop.Play();
+            opening.Stop();
             looping = true;
         }
     }
