@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     //Make player singleton
     // static private PlayerController instance;
-    static public PlayerController instance;
+    public static PlayerController instance;
 
 
     void OnAwake()
@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
-        DontDestroyOnLoad(this.gameObject);
     }
 
     //This class holds all state information for the player-object. All classes refer to this for state information.
@@ -47,6 +46,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerAnimations = gameObject.GetComponent<PlayerAnimations>();
+        DontDestroyOnLoad(this.gameObject);
+
     }
     
     public bool getCanMove()

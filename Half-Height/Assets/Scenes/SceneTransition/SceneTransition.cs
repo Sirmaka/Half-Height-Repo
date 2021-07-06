@@ -51,7 +51,7 @@ public class SceneTransition : MonoBehaviour
         //load scene
         SceneManager.LoadScene(moveSceneTo.handle);
         player.transform.position = new Vector3(nextScenePosition.x, nextScenePosition.y, 0);
-        player.GetComponent<PlayerController>().setCanMove(false);
+        player.GetComponent<PlayerController>().setCanMove(true);
     }
 
 }
