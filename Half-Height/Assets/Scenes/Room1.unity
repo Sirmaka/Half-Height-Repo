@@ -1257,6 +1257,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4296868599094191320, guid: 5de548e585751164999ee991aeb0a204,
+        type: 3}
+      propertyPath: leftBounds
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296868599094191320, guid: 5de548e585751164999ee991aeb0a204,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1348014328}
+    - target: {fileID: 4296868599094191320, guid: 5de548e585751164999ee991aeb0a204,
+        type: 3}
+      propertyPath: rightBounds
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 4296868599094191320, guid: 5de548e585751164999ee991aeb0a204,
+        type: 3}
+      propertyPath: topBounds
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4296868599094191321, guid: 5de548e585751164999ee991aeb0a204,
         type: 3}
       propertyPath: m_Name
@@ -1265,12 +1285,12 @@ PrefabInstance:
     - target: {fileID: 4296868599094191323, guid: 5de548e585751164999ee991aeb0a204,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 42.2
       objectReference: {fileID: 0}
     - target: {fileID: 4296868599094191323, guid: 5de548e585751164999ee991aeb0a204,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.3
       objectReference: {fileID: 0}
     - target: {fileID: 4296868599094191323, guid: 5de548e585751164999ee991aeb0a204,
         type: 3}
@@ -1366,12 +1386,12 @@ PrefabInstance:
     - target: {fileID: 4232338291396418781, guid: 6f0eded6f8c9d5648ac56e43c8409a72,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 48.4
+      value: 43.89
       objectReference: {fileID: 0}
     - target: {fileID: 4232338291396418781, guid: 6f0eded6f8c9d5648ac56e43c8409a72,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.79
+      value: 4.66
       objectReference: {fileID: 0}
     - target: {fileID: 4232338291396418781, guid: 6f0eded6f8c9d5648ac56e43c8409a72,
         type: 3}
@@ -1440,6 +1460,12 @@ PrefabInstance:
       objectReference: {fileID: 1476009630}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f0eded6f8c9d5648ac56e43c8409a72, type: 3}
+--- !u!20 &1348014328 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4296868599336868742, guid: 5de548e585751164999ee991aeb0a204,
+    type: 3}
+  m_PrefabInstance: {fileID: 1151211847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1351301126
 GameObject:
   m_ObjectHideFlags: 0
