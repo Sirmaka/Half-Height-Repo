@@ -43,13 +43,13 @@ public class Parallax : MonoBehaviour
     {
         if(localisedParallax)
         {
-            distanceX = centrePoint.position.x - player.transform.position.x; //distance between the player and the centrePoint
-            distanceY = centrePoint.position.y - player.transform.position.y;
+            distanceX = centrePoint.position.x - cameraPoint.transform.position.x; //distance between the player and the centrePoint
+            distanceY = centrePoint.position.y - cameraPoint.transform.position.y;
     
             for(int curLayer = 0; curLayer < layers.Length; curLayer++)
             {
                 //the position of the background is a fraction between the center of the area and the players position
-                layers[curLayer].transform.position = new Vector2(player.transform.position.x + (distanceX / layerFractions[curLayer]), player.transform.position.y + (distanceY / layerFractions[curLayer]));
+                layers[curLayer].transform.position = new Vector2(cameraPoint.transform.position.x + (distanceX / layerFractions[curLayer]), cameraPoint.transform.position.y + (distanceY / layerFractions[curLayer]));
             }
                 
         }

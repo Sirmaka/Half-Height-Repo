@@ -4,6 +4,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //Make player singleton
+    // static private PlayerController instance;
+    static public PlayerController instance;
+
+
+    void OnAwake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     //This class holds all state information for the player-object. All classes refer to this for state information.
 
     //states for movement and animation
