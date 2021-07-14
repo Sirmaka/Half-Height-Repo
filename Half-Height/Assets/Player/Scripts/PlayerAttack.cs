@@ -19,6 +19,8 @@ public class PlayerAttack : MonoBehaviour
     public float attackCooldown;
     private bool onCooldown = false;   //  determines whether the attack is on cooldown
     private float attackCooldownReset;    
+
+    private int number = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +64,8 @@ public class PlayerAttack : MonoBehaviour
 
             //create attack prefab
             AttackObject attack = Instantiate(attackPrefab);
+            attack.name = "attack " + number;
+            number++; //this makes the name different each time, useful for making sure that hits don't get counted multiple times in other objects.
             attack.setAttackPoints(attackPointLeft, attackPointRight);
             attack.transform.parent = transform;
             
