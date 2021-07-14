@@ -10,6 +10,7 @@ using UnityEngine;
 public class BreakableRock : MonoBehaviour
 {
     public BreakableRock nextPrefab;
+    public RockFragment rockFragmentPrefab;
     public LayerMask isAttack;
     private bool hit = false;
     private string ignore;
@@ -28,6 +29,9 @@ public class BreakableRock : MonoBehaviour
             }
             else 
             {
+                RockFragment rock1 = Instantiate(rockFragmentPrefab, this.transform.position + new Vector3(0.2f, -0.387f, 0), Quaternion.identity);
+                RockFragment rock2 = Instantiate(rockFragmentPrefab, this.transform.position + new Vector3(-0.2f, 0.387f, 0), Quaternion.identity);
+                RockFragment rock3 = Instantiate(rockFragmentPrefab, this.transform.position + new Vector3(0, 0, 0), Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }
