@@ -38,6 +38,7 @@ public class PlayerBlock : MonoBehaviour
 
     void FixedUpdate()
     {
+        bool wasBlocking = playerController.getBlocking();
         if(isBlocking && !playerController.getAttacking()
             && !playerController.getDashing() && playerController.getGrounded()
             && !playerController.getInDialogue())
@@ -51,6 +52,10 @@ public class PlayerBlock : MonoBehaviour
                 parryWindow = true;
                 canParry = false;
             }
+        }
+        if(!wasBlocking && playerController.getBlocking())
+        {
+            playerController.playSound("block");
         }
 
         if(parryWindow)

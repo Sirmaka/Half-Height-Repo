@@ -54,18 +54,6 @@ public class SFXManager : MonoBehaviour
     {
         Sound s = GetAudio(name);
         s.source.pitch = UnityEngine.Random.Range(min,max);
-        Debug.Log(s.pitch);
         s.source.Play();
-    }
-
-    // Update is called once per frame
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
     }
 }

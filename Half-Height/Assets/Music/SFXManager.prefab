@@ -56,9 +56,27 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 0}
-    name: 
-    volume: 0
-    pitch: 0
+  - clip: {fileID: 8300000, guid: 17dd19f6ccc6fc443bd4c89b6822eb6e, type: 3}
+    name: landing
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 5a6685c1652456549b18b36f4c72273d, type: 3}
+    name: dash
+    volume: 1
+    pitch: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: d4aa4252bad4c194c98188f3e40d3648, type: 3}
+    name: parry
+    volume: 1
+    pitch: 0.5
+    loop: 0
+    source: {fileID: 0}
+  - clip: {fileID: 8300000, guid: 13af42266586b674594ed932f436613c, type: 3}
+    name: block
+    volume: 1
+    pitch: 0.5
     loop: 0
     source: {fileID: 0}

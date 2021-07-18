@@ -185,6 +185,7 @@ public class PlayerController : MonoBehaviour
         successfulParry = set;
         if(successfulParry)
         {   //parry was successful, so stop parrying
+            playSound("parry");
             parrying = false;
         }
         alertAnimations();

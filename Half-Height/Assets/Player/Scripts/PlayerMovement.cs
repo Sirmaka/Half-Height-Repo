@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // grounded calculations
+        bool wasGrounded = pc.getGrounded();
         pc.setGrounded(false);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundedRadius, whatIsGround);
         for(int i = 0; i < colliders.Length; i++)
@@ -53,6 +54,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 pc.setGrounded(true);
             }
+        }
+        //play sfx if grounded was false and grounded is now true
+        if(!wasGrounded && pc.getGrounded())
+        {
+            pc.playSound("landing");
         }
 
         // movement

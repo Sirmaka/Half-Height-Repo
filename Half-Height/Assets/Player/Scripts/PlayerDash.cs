@@ -47,6 +47,7 @@ public class PlayerDash : MonoBehaviour
 
         if(dashing)
         {   
+            playerController.playSound("dash");
             amDashing = true;
             playerController.setCanMove(false); //set canMove to false. Must reset when dash is over
             playerController.setDashing(true);  //alert the playerController that the player is dashing   
