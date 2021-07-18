@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5228827812665542138}
   - component: {fileID: 4819593070755519032}
   - component: {fileID: -319270795862859134}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: RockCracked
   m_TagString: Untagged
   m_Icon: {fileID: 0}

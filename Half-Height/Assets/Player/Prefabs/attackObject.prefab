@@ -120,7 +120,11 @@ MonoBehaviour:
     type: 3}
   thisAnimator: {fileID: 3265403680203897584}
   thisSpriteRenderer: {fileID: 7603379734603156423}
+  sfx: {fileID: 0}
   damage: 1
+  isHittable:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!50 &6293466635482612643
 Rigidbody2D:
   serializedVersion: 4

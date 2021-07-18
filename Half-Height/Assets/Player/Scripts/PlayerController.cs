@@ -247,7 +247,7 @@ public class PlayerController : MonoBehaviour
         sfxManager.Play(name);
     }
 
-        public void playSound(string name, float min, float max) 
+    public void playSound(string name, float min, float max) 
     {
         sfxManager.Play(name, min, max);
     }
