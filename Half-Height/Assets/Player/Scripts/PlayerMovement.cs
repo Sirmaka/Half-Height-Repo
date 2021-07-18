@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
             // jumping
             if(pc.getGrounded() && jump)
             {
+                pc.playSound("jump");
                 pc.setGrounded(false);
                 rb.velocity += Vector2.up * jumpSpeed;
             }

@@ -43,9 +43,13 @@ public class PlayerController : MonoBehaviour
     // reference to animations
     private PlayerAnimations playerAnimations;
 
+    //sfx
+    private SFXManager sfxManager;
+
     void Start()
     {
         playerAnimations = gameObject.GetComponent<PlayerAnimations>();
+        sfxManager = GameObject.FindObjectOfType<SFXManager>();
         DontDestroyOnLoad(this.gameObject);
 
     }
@@ -220,7 +224,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    // used to set all states to false so a new one can be identified.
+    // used to set all states to false so a new one can be set.
     private void switchOffStates()
     {
         neutral = false;
@@ -234,5 +238,16 @@ public class PlayerController : MonoBehaviour
     private void alertAnimations()
     {
         playerAnimations.changeOfState();
+    }
+
+    //sfx
+    public void playSound(string name) 
+    {
+        sfxManager.Play(name);
+    }
+
+        public void playSound(string name, float min, float max) 
+    {
+        sfxManager.Play(name, min, max);
     }
 }

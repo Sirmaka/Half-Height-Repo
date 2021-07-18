@@ -61,6 +61,7 @@ public class PlayerAttack : MonoBehaviour
         {
             // tell playerController that we're attacking
             playerController.setAttacking(true);
+            playerController.playSound("slash", 0.5f, 1.5f);
 
             //create attack prefab
             AttackObject attack = Instantiate(attackPrefab);
