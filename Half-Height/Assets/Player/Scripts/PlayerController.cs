@@ -8,20 +8,6 @@ public class PlayerController : MonoBehaviour
     // static private PlayerController instance;
     public static PlayerController instance;
 
-
-    void OnAwake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-    }
-
     //This class holds all state information for the player-object. All classes refer to this for state information.
 
     //states for movement and animation
@@ -48,9 +34,18 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        DontDestroyOnLoad(this.gameObject);
         playerAnimations = gameObject.GetComponent<PlayerAnimations>();
         sfxManager = GameObject.FindObjectOfType<SFXManager>();
-        DontDestroyOnLoad(this.gameObject);
 
     }
     
