@@ -13,14 +13,15 @@ public class AttackObject : MonoBehaviour
     private Transform attackPointLeft;
     public Animator thisAnimator;       // set in unity
     public SpriteRenderer thisSpriteRenderer;
-    public SFXManager sfx;
+    private SFXManager sfx;
     private bool facingLeft;
     public int damage = 1;
     public LayerMask isHittable;
+
     void Start()
     {
-        AnimationClip[] clips = thisAnimator.runtimeAnimatorController.animationClips;
         sfx = GameObject.FindObjectOfType<SFXManager>();
+        AnimationClip[] clips = thisAnimator.runtimeAnimatorController.animationClips;
         foreach(AnimationClip clip in clips)
         {
             if(clip.name.Equals("attackAnim"))
@@ -55,8 +56,6 @@ public class AttackObject : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        
-       
     }
 
     public int getDamage()
@@ -76,6 +75,7 @@ public class AttackObject : MonoBehaviour
         if(isHittable.Contains(collider.gameObject))
         {
             sfx.Play("attackHit");
+            // Debug.Log(sfx);
         }
     }
 }
