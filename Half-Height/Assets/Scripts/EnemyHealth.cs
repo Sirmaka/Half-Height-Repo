@@ -80,11 +80,12 @@ public class EnemyHealth : MonoBehaviour
 
     private void takeDamage(int damage)
     {
-        Debug.Log("Ouch!");
+        // Debug.Log("Ouch!");
         hp -= damage;
         if(hp <= 0)
         {
-            Debug.Log("Ouch! I'm dead.");
+            // Debug.Log("Ouch! I'm dead.");
+            Destroy(this.gameObject);
         }
     }
 }
