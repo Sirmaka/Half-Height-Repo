@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
     public float parryInvincibleDuration;   //how long the player will be invincible after successfully parrying
     private float parryInvincibleTimer;
     private bool parryInvincible;
+    private SFXManager sfx;
     // public LayerMask whatIsAttack;
     // private bool invincible;
     
@@ -31,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
         playerController = this.GetComponent<PlayerController>();
         thisSpriteRenderer = this.GetComponent<SpriteRenderer>();
         thisRigidbody = this.GetComponent<Rigidbody2D>();
+        sfx = GameObject.FindObjectOfType<SFXManager>();
         hp = maxHP;   
         knockBackTimer = knockBackDuration;
         parryInvincibleTimer = parryInvincibleDuration;
@@ -112,8 +114,13 @@ public class PlayerHealth : MonoBehaviour
                 {
                     takeDamage();
                 }
+                else
+                {
+                    sfx.Play("blocked");
+                }
                 //knockback
                 knockedBack = true;
+
             }
           
         }
