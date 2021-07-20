@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -70,7 +70,7 @@ public class AttackObject : MonoBehaviour
         attackPointRight = right;
     }
 
-    void OnTriggerStay2D(Collider2D collider)
+    void OnTriggerStay2D(Collider2D collider)   //not sure if this works
     {
         if(isHittable.Contains(collider.gameObject))
         {
