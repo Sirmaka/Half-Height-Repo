@@ -53,7 +53,7 @@ public class PlayerBlock : MonoBehaviour
                 canParry = false;
             }
         }
-        if(!wasBlocking && playerController.getBlocking())
+        if(!wasBlocking && playerController.getBlocking() && !playerController.getHurt())
         {
             playerController.playSound("block");
         }
