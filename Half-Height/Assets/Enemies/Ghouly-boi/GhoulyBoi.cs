@@ -118,7 +118,7 @@ public class GhoulyBoi : MonoBehaviour
         }
         else
         {
-            targetVelocity = new Vector3(chargingSpeed * direction, 0, 0); 
+            targetVelocity = new Vector3(chargingSpeed * direction, rb.velocity.y, 0); 
 
         }
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref refVelocity, movementSmoothing);
