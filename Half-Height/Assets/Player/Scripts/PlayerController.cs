@@ -120,12 +120,9 @@ public class PlayerController : MonoBehaviour
 
     public void setBlocking(bool set)
     {
-        if(!blocking)
-        {
-            switchOffStates();
-            blocking = set;
-            alertAnimations();
-        }
+        switchOffStates();
+        blocking = set;
+        alertAnimations();
     }
 
     public bool getGrounded()

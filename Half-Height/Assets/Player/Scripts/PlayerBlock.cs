@@ -26,7 +26,10 @@ public class PlayerBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("Block"))
+        isBlocking = false;
+        if(Input.GetButton("Block") && !playerController.getAttacking()
+            && !playerController.getDashing() && playerController.getGrounded()
+            && !playerController.getInDialogue())
         {
             isBlocking = true;
         }
@@ -39,13 +42,13 @@ public class PlayerBlock : MonoBehaviour
     void FixedUpdate()
     {
         bool wasBlocking = playerController.getBlocking();
-        if(isBlocking && !playerController.getAttacking()
-            && !playerController.getDashing() && playerController.getGrounded()
-            && !playerController.getInDialogue())
+        bool curBlocking = false;
+        if(isBlocking)
         {
             // tell PlayerController that we're blocking and we can't move
             playerController.setBlocking(true);
             playerController.setCanMove(false);
+            curBlocking = true;
             // thisRigidbody.velocity = new Vector2(0,0);  //  Stop the player from sliding.
             if(canParry)
             {
@@ -53,7 +56,14 @@ public class PlayerBlock : MonoBehaviour
                 canParry = false;
             }
         }
-        if(!wasBlocking && playerController.getBlocking() && !playerController.getHurt())
+        
+        if(wasBlocking && !curBlocking)
+        {
+            stopBlocking = true;
+        }
+
+        //if was not blocking last frame, but ARE blocking this frame, play the block sound.
+        if(!wasBlocking && playerController.getBlocking())
         {
             playerController.playSound("block");
         }
