@@ -215,6 +215,102 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b93934b52b272c43a5423de44605ed3, type: 3}
+--- !u!1001 &55484592
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8429878035161489074, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489074, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[0]
+      value: This place was once a mighty castle, a testament to a great and mighty
+        empire.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489074, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[1]
+      value: You can probably tell what happened to the empire given the state of
+        these ruins.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489074, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: dialogue.sentences.Array.data[2]
+      value: Press "z" to attack.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489075, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 71.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489075, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489075, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489075, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489075, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489075, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489075, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489075, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489075, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489075, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489075, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489076, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429878035161489079, guid: 3b93934b52b272c43a5423de44605ed3,
+        type: 3}
+      propertyPath: m_Name
+      value: Helper (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3b93934b52b272c43a5423de44605ed3, type: 3}
 --- !u!1001 &64273833
 PrefabInstance:
   m_ObjectHideFlags: 0
