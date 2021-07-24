@@ -5,6 +5,7 @@ using UnityEngine;
 public class Canonball : MonoBehaviour
 {
     public float speed;
+    public float direction = 1;
     public LayerMask player;
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,7 @@ public class Canonball : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = new Vector2(transform.position.x - speed, transform.position.y);
+        transform.position = new Vector2(transform.position.x + speed * direction, transform.position.y);
     }
 
     void OnTriggerStay2D(Collider2D other)

@@ -56,4 +56,10 @@ public class SFXManager : MonoBehaviour
         s.source.pitch = UnityEngine.Random.Range(min,max);
         s.source.Play();
     }
+
+        public void Stop(string name)
+    {
+        Sound s = GetAudio(name);
+        s.source.Stop();
+    }
 }

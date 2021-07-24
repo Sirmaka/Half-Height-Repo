@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Canon : MonoBehaviour
 {
-    public GameObject canonballPrefab;
+    public Canonball canonballPrefab;
     public float fireRate;
     private float fireTimer;
+    public bool fireRight;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +20,17 @@ public class Canon : MonoBehaviour
         fireTimer -= Time.deltaTime;
         if(fireTimer <= 0)
         {
-            GameObject canonball = Instantiate(canonballPrefab);
+            Canonball canonball = Instantiate(canonballPrefab);
             canonball.transform.parent = transform;
             canonball.transform.position = transform.position;
+            if(fireRight)
+            {
+                canonball.direction = 1;
+            }
+            else
+            {
+                canonball.direction = -1;
+            }
             fireTimer = fireRate;
         }
     }

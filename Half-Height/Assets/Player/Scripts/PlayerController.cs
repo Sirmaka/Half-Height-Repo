@@ -120,12 +120,9 @@ public class PlayerController : MonoBehaviour
 
     public void setBlocking(bool set)
     {
-        if(!blocking)
-        {
-            switchOffStates();
-            blocking = set;
-            alertAnimations();
-        }
+        switchOffStates();
+        blocking = set;
+        alertAnimations();
     }
 
     public bool getGrounded()
@@ -180,7 +177,7 @@ public class PlayerController : MonoBehaviour
         successfulParry = set;
         if(successfulParry)
         {   //parry was successful, so stop parrying
-            playSound("parry");
+            
             parrying = false;
         }
         alertAnimations();
@@ -245,5 +242,10 @@ public class PlayerController : MonoBehaviour
     public void playSound(string name, float min, float max) 
     {
         sfxManager.Play(name, min, max);
+    }
+
+    public void stopSound(string name)
+    {
+        sfxManager.Stop(name);
     }
 }

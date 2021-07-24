@@ -101,6 +101,8 @@ public class PlayerHealth : MonoBehaviour
                     || (playerController.getParrying() && !facingRight && attackDirection < 0))
             {
                 successfulParry();
+                playerController.stopSound("block");
+                playerController.playSound("parry");
             }
             //if we're invincible, don't do any of the following code
             if(!playerController.getInvincible())
@@ -112,8 +114,13 @@ public class PlayerHealth : MonoBehaviour
                 {
                     takeDamage();
                 }
+                else
+                {
+                    playerController.playSound("blocked");
+                }
                 //knockback
                 knockedBack = true;
+
             }
           
         }
