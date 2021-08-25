@@ -129,32 +129,27 @@ public class GhoulyBoi : MonoBehaviour
     {
         //if about to walk off a ledge, turn around
         Collider2D[] collidersLeft = Physics2D.OverlapCircleAll(leftCheck.position, checkRadius, whatIsGround);
-        if(collidersLeft.Length != 0)
+        if(collidersLeft.Length != 0 && direction < 0)
         {
-            direction = 1;
-            sprite.flipX = true;
+            Flip();
         }
 
         Collider2D[] collidersRight = Physics2D.OverlapCircleAll(rightCheck.position, checkRadius, whatIsGround);
-        if(collidersRight.Length != 0)
+        if(collidersRight.Length != 0 && direction > 0)
         {
-            direction = -1;
-            sprite.flipX = false;
+            Flip();
         }
         //if about to walk into a ledge, turn around
         Collider2D[] collidersLeftGround = Physics2D.OverlapCircleAll(leftGroundCheck.position, checkRadius, whatIsGround);
-        if(collidersLeftGround.Length == 0)
+        if(collidersLeftGround.Length == 0 && direction < 0)
         {
-            direction = 1;
-            sprite.flipX = true;
+            Flip();
         }
 
         Collider2D[] collidersRightGround = Physics2D.OverlapCircleAll(rightGroundCheck.position, checkRadius, whatIsGround);
-        if(collidersRightGround.Length == 0)
+        if(collidersRightGround.Length == 0 && direction > 0)
         {
-            direction = -1;
-            sprite.flipX = false;
-
+            Flip();
         }
     }
 
@@ -174,14 +169,13 @@ public class GhoulyBoi : MonoBehaviour
     {
         if(isPlayer.Contains(col.gameObject))
         {
-            direction *= -1;
-            if(sprite.flipX == true)
+            if(direction < 0 && (col.gameObject.transform.position.x < this.transform.position.x)) 
             {
-                sprite.flipX = false;
+                Flip();
             }
-            else
+            if(direction > 0 && col.gameObject.transform.position.x > this.transform.position.x) 
             {
-                sprite.flipX = true;
+                Flip();
             }
             state = States.patrolling;
         }
@@ -194,6 +188,18 @@ public class GhoulyBoi : MonoBehaviour
         Gizmos.DrawWireSphere(leftCheck.position, checkRadius);
         Gizmos.DrawWireSphere(rightGroundCheck.position, checkRadius);
         Gizmos.DrawWireSphere(leftGroundCheck.position, checkRadius);
+    }
+
+    private void Flip() {
+        direction *= -1;
+        if(sprite.flipX) 
+        {
+            sprite.flipX = false;
+        }
+        else 
+        {
+            sprite.flipX = true;
+        }
     }
 
 }
