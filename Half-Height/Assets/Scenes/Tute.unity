@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -18824,6 +18824,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5e0784b51367da49ad61cbfb48d695d, type: 3}
+--- !u!114 &3595320613510620788 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3595320613566938153, guid: c5e0784b51367da49ad61cbfb48d695d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3595320613510620787}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3595320613510620789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3595320615285477803, guid: c5e0784b51367da49ad61cbfb48d695d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3595320613510620787}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3595320613510620790 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3595320615225662081, guid: c5e0784b51367da49ad61cbfb48d695d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3595320613510620787}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &3595320613510620791 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3595320614316652423, guid: c5e0784b51367da49ad61cbfb48d695d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3595320613510620787}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4195555695631860993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18835,22 +18877,22 @@ PrefabInstance:
         type: 3}
       propertyPath: nameText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3595320613510620790}
     - target: {fileID: 4195555696450328024, guid: e783303eb8995d441bfd5e74e7d4169a,
         type: 3}
       propertyPath: dialogueText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3595320613510620789}
     - target: {fileID: 4195555696450328024, guid: e783303eb8995d441bfd5e74e7d4169a,
         type: 3}
       propertyPath: dialogueImage
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3595320613510620788}
     - target: {fileID: 4195555696450328024, guid: e783303eb8995d441bfd5e74e7d4169a,
         type: 3}
       propertyPath: panelAnimator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3595320613510620791}
     - target: {fileID: 4195555696562068508, guid: e783303eb8995d441bfd5e74e7d4169a,
         type: 3}
       propertyPath: m_Name

@@ -46,15 +46,23 @@ public class SFXManager : MonoBehaviour
     }
     public void Play(string name)
     {
-        Sound s = GetAudio(name);
-        s.source.Play();
+        if(GetAudio(name) != null) 
+        {
+            Sound s = GetAudio(name);
+            s.source.Play();
+        }
+        
     }
 
     public void Play(string name, float min, float max)
     {
-        Sound s = GetAudio(name);
-        s.source.pitch = UnityEngine.Random.Range(min,max);
-        s.source.Play();
+        if(GetAudio(name) != null) 
+        {
+            Sound s = GetAudio(name);
+            s.source.pitch = UnityEngine.Random.Range(min,max);
+            s.source.Play();
+        }
+
     }
 
         public void Stop(string name)

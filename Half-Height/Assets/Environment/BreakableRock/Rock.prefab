@@ -98,7 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextPrefab: {fileID: 5228827812665542138, guid: 6503353712b0ded41bcb2bafc32836b6,
     type: 3}
-  rockFragmentPrefab: {fileID: 0}
+  rockFragmentPrefab: {fileID: 4453035338530200661, guid: f23cef6eaf674ba419e441805bf342a1,
+    type: 3}
   isAttack:
     serializedVersion: 2
     m_Bits: 2048
